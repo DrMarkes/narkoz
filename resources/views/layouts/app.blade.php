@@ -74,7 +74,7 @@
                         </form>
 
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav align-items-end">
                             <!-- Authentication Links -->
                             @if (Auth::guest())
                             <li class="nav-item">
