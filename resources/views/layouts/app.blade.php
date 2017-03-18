@@ -49,10 +49,7 @@
                         <strong>{{ config('app.name', 'Laravel') }}</strong>
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNav1">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-                            </li>
+                        <ul class="navbar-nav mr-auto">                           
                             <li class="nav-item">
                                 <a class="nav-link">Features</a>
                             </li>
