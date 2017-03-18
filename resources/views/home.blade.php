@@ -60,8 +60,6 @@
 
                 <br>
 
-
-
                 <!--Form with header-->
                 <div class="card">
                     <div class="card-block">
@@ -76,24 +74,29 @@
                         <form class="form-horizontal" role="form" method="POST" 
                               action="{{ route('createQuestion') }}">
 
-                            {{ csrf_field() }}
+                            {{ csrf_field() }}                           
 
                             <div class="md-form form-group">
-                                <i class="fa fa-envelope prefix"></i>
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form2">Your email</label>
-                            </div>
-
-                            <div class="md-form form-group">
-                                <i class="fa fa-lock prefix"></i>
-                                <input type="password" id="form2" class="form-control">
-                                <label for="form4">Your password</label>
-                            </div>
-
-                            <div class="md-form form-group">
-                                <textarea type="text" id="question" name="question" class="md-textarea"></textarea>
+                                <textarea type="text" id="question" name="question" 
+                                          class="md-textarea" required></textarea>
                                 <label for="question">Опишите здесь свой вопрос *</label>
                             </div>
+                            
+                            @if(Auth::guest()) 
+
+                            <div>
+                                <h3 class="text-center">Ваши контактные данные</h3>
+                                <h5 class="text-center">чтобы я мог оповестить Вас, 
+                                    когда будет отправлен ответ</h5>
+                            </div> 
+                            
+                            @else 
+                            
+                            <div>
+                                <h5 class="text-center">Отправить от <big><strong>{{ Auth::user()->name }}</strong></big></h5>                               
+                            </div> 
+                            
+                            @endif
 
                             <div class="text-center form-group">
                                 <button type="submit" class="btn btn-deep-purple">Задать вопрос</button>
