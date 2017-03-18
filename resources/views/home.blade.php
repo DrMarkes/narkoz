@@ -81,7 +81,7 @@
                                           class="md-textarea" required></textarea>
                                 <label for="question">Опишите здесь свой вопрос *</label>
                             </div>
-                            
+
                             @if(Auth::guest()) 
 
                             <div>
@@ -89,13 +89,13 @@
                                 <h5 class="text-center">чтобы я мог оповестить Вас, 
                                     когда будет отправлен ответ</h5>
                             </div> 
-                            
+
                             @else 
-                            
+
                             <div>
                                 <h5 class="text-center">Отправить от <big><strong>{{ Auth::user()->name }}</strong></big></h5>                               
                             </div> 
-                            
+
                             @endif
 
                             <div class="text-center form-group">
@@ -108,16 +108,15 @@
 
                     <!--Footer-->
                     <div class="modal-footer">
-                        <div class="options">
-                            <p>Not a member? <a href="#">Sign Up</a></p>
-                            <p>Forgot <a href="#">Password?</a></p>
+
+                        <div class="options mdb-color-text">
+                            <p class="align-items-end">Не зарегистрированы? <a href="#">Регистрация</a></p>
+                            <p class="align-items-end">Забыли <a href="#">Пароль?</a></p>
                         </div>
                     </div>
 
                 </div>
-                <!--/Form with header-->
-
-                <hr>                           
+                <!--/Form with header-->                         
 
             </div>
 

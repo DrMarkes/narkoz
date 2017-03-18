@@ -1,11 +1,9 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
 
-        <!--Form with header-->
-        <div class="card col-6">
+
+<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="card">
             <div class="card-block">
 
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -18,8 +16,8 @@
 
                     <!--Body-->
                     <div class="md-form form-group">                       
-                        <input id="email1" type="email" class="form-control" name="email" required autofocus>
-                        <label for="email1">E-Mail</label> 
+                        <input id="email" type="email" class="form-control" name="email" required autofocus>
+                        <label for="email">E-Mail</label> 
                         @if ($errors->has('email'))
                         <span class="help-block text-danger">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -36,17 +34,17 @@
                         </span>
                         @endif
                     </div>
-
+                    
 
                     <div class="md-form form-group">
-
+   
                         <label>  
-                            <input type="checkbox" name="remember" 
-                                   {{ old('remember') ? 'checked' : '' }}>
-                                   Запомнить меня</label>
-
+                        <input type="checkbox" name="remember" 
+                                       {{ old('remember') ? 'checked' : '' }}>
+                                       Запомнить меня</label>
+                
                     </div>
-
+ 
 
                     <div class="text-center">                       
                         <button type="submit" class="btn btn-deep-purple">Войти</button>
@@ -67,4 +65,7 @@
         <!--/Form with header-->
     </div>
 </div>
-@endsection
+
+
+<!-- App JavaScript -->
+<script type="text/javascript" src="js/app.js"></script>
