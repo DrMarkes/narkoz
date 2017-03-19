@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('loginForm')
+
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -67,4 +71,8 @@
         <!--/Form with header-->
     </div>
 </div>
+@endsection
+
+@section('sidebar')
+
 @endsection

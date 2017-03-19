@@ -1,6 +1,3 @@
-
-
-
 <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="card">
@@ -34,17 +31,17 @@
                         </span>
                         @endif
                     </div>
-                    
+
 
                     <div class="md-form form-group">
-   
+
                         <label>  
-                        <input type="checkbox" name="remember" 
-                                       {{ old('remember') ? 'checked' : '' }}>
-                                       Запомнить меня</label>
-                
+                            <input type="checkbox" name="remember" 
+                                   {{ old('remember') ? 'checked' : '' }}>
+                                   Запомнить меня</label>
+
                     </div>
- 
+
 
                     <div class="text-center">                       
                         <button type="submit" class="btn btn-deep-purple">Войти</button>
@@ -66,6 +63,3 @@
     </div>
 </div>
 
-
-<!-- App JavaScript -->
-<script type="text/javascript" src="js/app.js"></script>
