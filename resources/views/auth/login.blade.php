@@ -22,7 +22,7 @@
 
                     <!--Body-->
                     <div class="md-form form-group">                       
-                        <input id="email1" type="email" class="form-control" name="email" required autofocus>
+                        <input id="email1" type="email" class="form-control validate" name="email" required autofocus>
                         <label for="email1">E-Mail</label> 
                         @if ($errors->has('email'))
                         <span class="help-block text-danger">
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="md-form form-group">                       
-                        <input id="password" type="password" class="form-control" name="password" required>
+                        <input id="password" type="password" class="form-control validate" name="password" required>
                         <label for="password">Пароль</label> 
                         @if ($errors->has('password'))
                         <span class="help-block text-danger">
