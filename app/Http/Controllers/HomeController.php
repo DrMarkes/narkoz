@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\HelloWorldShipped;
 
 class HomeController extends Controller
 {
@@ -11,8 +13,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+      //  Mail::to($request->user())->send(new HelloWorldShipped());
+        
         return view('home');
     }
+    
 }

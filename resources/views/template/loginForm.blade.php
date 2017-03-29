@@ -53,8 +53,8 @@
             <div class="modal-footer">
 
                 <div class="options mdb-color-text">
-                    <p class="align-items-end">Не зарегистрированы? <a href="#">Регистрация</a></p>
-                    <p class="align-items-end">Забыли <a href="#">Пароль?</a></p>
+                    <p class="align-items-end">Не зарегистрированы? <a href="{{ route('register') }}">Регистрация</a></p>
+                    <p class="align-items-end">Забыли <a href="{{ route('password.request') }}">Пароль?</a></p>
                 </div>
             </div>
 

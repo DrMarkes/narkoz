@@ -21,12 +21,12 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Material Design Bootstrap -->
-        <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
 
-        <link href="css/style.css" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -88,19 +88,19 @@
 
         <!-- SCRIPTS -->
         <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
 
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="js/tether.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/tether.min.js') }}"></script>
 
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 
         <!-- App JavaScript -->
-        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     </body>
 

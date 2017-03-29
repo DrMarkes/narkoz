@@ -16,3 +16,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::post('/', ['uses' => 'QuestionController@create', 'as' => 'createQuestion']);
+
+Route::get('/questions', ['uses' => 'QuestionController@show', 'as' => 'showQuestons']);
