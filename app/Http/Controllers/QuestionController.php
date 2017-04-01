@@ -4,40 +4,121 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserQuestion;
-use Auth;
 
 class QuestionController extends Controller {
     
-    private $request;
+    const STATUS_HAS_ANSWER = 'hasAnswer';
+    const STATUS_NO_ANSWER = 'noAnswer';
 
-    public function __construct(Request $request) {
+    public function __construct() {
+
         $this->middleware('auth');
-        $this->request = $request;
-
     }
 
-    public function create() {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request) {
 
-        $question = new UserQuestion([
-            'content' => $this->request['question'],
-            'status' => "new",
-        ]);
-
-        $this->getUser()->userQuestions()->save($question);
-
-        return redirect()->back();
-    }
-
-    public function show() {  
-        
-        $questions = $this->getUser()->userQuestions;      
+            $questions = $request->user()->userQuestions;
 
         return view('show_questions')->withQuestions($questions);
     }
     
-    private function getUser() {
+    /**
+     * Display a listing of the Questions hasAnswer.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function questionsHasAnswer(Request $request) {
         
-        return $this->request->user();
+        $status = $request['status'];
+        $questions = $request->user()->userQuestions->where('status', self::STATUS_HAS_ANSWER);
+        
+        return view('show_questions')->withQuestions($questions);
+    }
+    
+    /**
+     * Display a listing of the Questions noAnswer.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function questionsNoAnswer(Request $request) {
+        
+        $status = $request['status'];
+        $questions = $request->user()->userQuestions->where('status', self::STATUS_NO_ANSWER);
+        
+        return view('show_questions')->withQuestions($questions);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create() {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request) {
+
+        $question = new UserQuestion([
+            'content' => $request['question'],
+            'status' => "new",
+        ]);
+
+        $request->user()->userQuestions()->save($question);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id) {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id) {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id) {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id) {
+        //
     }
 
 }

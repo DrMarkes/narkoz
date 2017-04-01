@@ -68,7 +68,7 @@
             <!--Body-->
 
             <form class="form-horizontal" role="form" method="POST" 
-                  action="{{ route('createQuestion') }}">
+                  action="{{ route('questions.store') }}">
 
                 {{ csrf_field() }}                           
 

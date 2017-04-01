@@ -10,11 +10,11 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarNav1">
             <ul class="navbar-nav mr-auto">                           
-                <li class="nav-item">
-                    <a class="nav-link">Features</a>
+                <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="nav-link">Главная</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link">Pricing</a>
+                <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
+                    <a href="{{ route('about') }}" class="nav-link">Обо мне</a>
                 </li>
                 <li class="nav-item dropdown btn-group">
                     <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
