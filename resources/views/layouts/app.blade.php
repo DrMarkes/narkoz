@@ -13,9 +13,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-        
-        <!--mdl-->
-        <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">      
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -35,19 +32,10 @@
             ]) !!}
             ;
         </script>
-        
-        <!--mdl-->
-        <script src="/node_modules/material-design-lite/material.min.js"></script>
 
     </head>
 
     <body>
-
-        @section('loginForm')
-
-        @include('template.loginForm')
-
-        @show
 
         <header>
 

@@ -13,17 +13,39 @@
                 <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}" class="nav-link">Главная</a>
                 </li>
+
                 <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
                     <a href="{{ route('about') }}" class="nav-link">Обо мне</a>
                 </li>
+                
+                @if(Auth::check())
                 <li class="nav-item dropdown btn-group">
-                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" 
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Личный кабинет</a>
                     <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-                        <a class="dropdown-item">Action</a>
-                        <a class="dropdown-item">Another action</a>
-                        <a class="dropdown-item">Something else here</a>
+                        <a href="{{ route('questions.index') }}" 
+                           class="dropdown-item 
+                           {{ Route::is('questions.index') ? 'text-primary' : '' }}">
+                            Мои вопросы</a>
+
+                        <a href="{{ route('questions.hasAnswer') }}" 
+                           class="dropdown-item 
+                           {{ Route::is('questions.hasAnswer') ? 'text-primary' : '' }}">
+                            Отвеченные</a>
+
+                        <a href="{{ route('questions.noAnswer') }}" 
+                           class="dropdown-item
+                           {{ Route::is('questions.noAnswer') ? 'text-primary' : '' }}">
+                            Ожидают ответа</a>
+
+                        <a href="{{ route('user') }}" class="dropdown-item
+                           {{ Route::is('user') ? 'text-primary' : '' }}">
+                            Изменить личные данные</a>
                     </div>
                 </li>
+                @endif
+
             </ul>
 
             <form class="form-inline waves-effect waves-light">
@@ -35,7 +57,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#login">Войти</a>
+                    <a class="nav-link" href="{{ route('login') }}">Войти</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}">Регистрация</a>

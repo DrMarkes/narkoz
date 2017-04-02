@@ -7,19 +7,22 @@
             <p class="list-group-item bg-primary text-white">Личный кабинет</p>
             <a href="{{ route('questions.index') }}" class="list-group-item 
                list-group-item-action {{ Route::is('questions.index') ? 'text-primary' : '' }}">
-                Мои вопросы
-            </a>
-                
+                Мои вопросы</a>
+
             <a href="{{ route('questions.hasAnswer') }}" 
                class="list-group-item list-group-item-action
                {{ Route::is('questions.hasAnswer') ? 'text-primary' : '' }}">
                 Отвеченные</a>
-                
+
             <a href="{{ route('questions.noAnswer') }}" 
                class="list-group-item list-group-item-action
                {{ Route::is('questions.noAnswer') ? 'text-primary' : '' }}">
                 Ожидают ответа</a>
-            <a href="#" class="list-group-item list-group-item-action">Изменить личные данные</a>
+            
+            <a href="{{ route('user') }}" 
+               class="list-group-item list-group-item-action
+               {{ Route::is('user') ? 'text-primary' : '' }}">
+                Изменить личные данные</a>
         </div>
         <br>
         <div class="text-center form-group">

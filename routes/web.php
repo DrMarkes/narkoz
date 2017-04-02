@@ -18,6 +18,16 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
+Route::get('/user', [
+    'uses' => 'UserController@index',
+    'as' => 'user'
+]);
+
+Route::post('/user', [
+    'uses' => 'UserController@update',
+    'as' => 'user.update'
+]);
+
 Route::get('/questions/has_answer', [
     'uses' => 'QuestionController@questionsHasAnswer',
     'as' => 'questions.hasAnswer'

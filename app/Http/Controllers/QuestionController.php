@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\UserQuestion;
 
 class QuestionController extends Controller {
-    
+
     const STATUS_HAS_ANSWER = 'hasAnswer';
     const STATUS_NO_ANSWER = 'noAnswer';
 
@@ -22,34 +22,34 @@ class QuestionController extends Controller {
      */
     public function index(Request $request) {
 
-            $questions = $request->user()->userQuestions;
+        $questions = $request->user()->userQuestions->sortByDesc('updated_at');
 
         return view('show_questions')->withQuestions($questions);
     }
-    
+
     /**
      * Display a listing of the Questions hasAnswer.
      *
      * @return \Illuminate\Http\Response
      */
     public function questionsHasAnswer(Request $request) {
-        
+
         $status = $request['status'];
         $questions = $request->user()->userQuestions->where('status', self::STATUS_HAS_ANSWER);
-        
+
         return view('show_questions')->withQuestions($questions);
     }
-    
+
     /**
      * Display a listing of the Questions noAnswer.
      *
      * @return \Illuminate\Http\Response
      */
     public function questionsNoAnswer(Request $request) {
-        
+
         $status = $request['status'];
         $questions = $request->user()->userQuestions->where('status', self::STATUS_NO_ANSWER);
-        
+
         return view('show_questions')->withQuestions($questions);
     }
 
@@ -72,7 +72,7 @@ class QuestionController extends Controller {
 
         $question = new UserQuestion([
             'content' => $request['question'],
-            'status' => "new",
+            'status' => "noAnswer",
         ]);
 
         $request->user()->userQuestions()->save($question);
