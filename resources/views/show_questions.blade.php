@@ -4,26 +4,26 @@
 
 <div class="col-lg-8">
 
-    @forelse($questions as $question)
+    <div class="list-group">
+        @forelse($questions as $question)       
 
-    <div class="post-wrapper">
-        <p>{{ $question->user->name }}</p>
-        <br>
-        <p>{{ $question->content }}</p>
-        <br>
-        <p>{{ $question->status }}</p>
-    </div>
-    <hr>
+        <a href="{{ route('questions.show', ['id' => $question->id]) }}" 
+           class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ $question->user->name }}</h5>
+                <small>{{ $question->updated_at}}</small>
+            </div>
 
-    @empty
-    
-    <div class="post-wrapper">
-        <p>Вопросов не найдено</p>
+            <p class="mb-1">{{ $question->content }}</p>
+            <small class="w-100 text-right">{{ $question->status }}</small>
+        </a>
+
+        @empty
+
+        <p class="list-group-item align-items-start">Вопросов не найдено</p>
+
+        @endforelse
     </div>
-    <hr>
-    
-    @endforelse
-    
 </div>
 
 @endsection

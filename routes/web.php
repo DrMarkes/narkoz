@@ -44,3 +44,8 @@ Route::get('/about', [
     'uses' => 'AboutController@index',
     'as' => 'about'
 ]);
+
+Route::post('/questions/{question}/comments', [
+    'uses' => 'CommentController@store',
+    'as' => 'comments.store'
+  ]);

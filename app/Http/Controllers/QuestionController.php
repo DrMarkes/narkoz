@@ -70,7 +70,7 @@ class QuestionController extends Controller {
      */
     public function store(Request $request) {
 
-        $question = new UserQuestion([
+        $question = UserQuestion::create([
             'content' => $request['question'],
             'status' => "noAnswer",
         ]);
@@ -86,8 +86,11 @@ class QuestionController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        //
+    public function show(UserQuestion $question) {
+
+        $comments = $question->comments;
+
+        return view('show_question')->withQuestion($question)->withComments($comments);
     }
 
     /**
